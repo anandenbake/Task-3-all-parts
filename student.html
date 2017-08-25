@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head></head>
+<body>
+ <script>
+
+	function student(name, age, phonenum, state){
+	  this.name = name;
+	  this.age = age;
+	  this.phonenum = phonenum;
+	  this.state = state;
+	}
+
+
+		  Object.defineProperty(student.prototype, "stuInfo", {
+		  get: function(){
+		    return "Name: " + this.name + "  Age: " + this.age + "  Phonenum: " + this.phonenum + "  State: " + this.state;
+       },
+		  set: function(theStudent){
+		    var parts = theStudent.toString().split(", ");
+		    this.name = parts[0] || '';
+		    this.age = parts[1] || '';
+		    this.phonenum = parts[2] || '';
+		    this.state = parts[3] || '';
+		  }
+        });
+   
+		    var stu1 = new student();
+		    stu1.stuInfo = "Joy, 24, 898989, UP";
+		  document.write(stu1.stuInfo + "<br /><br />");
+
+		  var stu1 = new student();
+		    stu1.stuInfo = "Ravi, 19, 87759, WB";
+		  document.write(stu1.stuInfo + "<br /><br />");
+
+		  var stu1 = new student();
+		    stu1.stuInfo = "Ali, 33, 767687, Assam";
+		  document.write(stu1.stuInfo + "<br /><br />");
+    </script>
+  </body>
+</html>
